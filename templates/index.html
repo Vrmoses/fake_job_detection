@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fake Job Recruitment</title>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hind:300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+
+  <style>
+    /* General Styles */
+    body {
+        font-family: 'Arimo', sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    /* Container */
+    .login {
+        width: 400px;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Heading */
+    .login h1 {
+        font-family: 'Pacifico', cursive;
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    /* Input Fields */
+    .login input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Submit Button */
+    .login button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        background: #5c67f2;
+        color: white;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .login button:hover {
+        background: #4a54e1;
+    }
+
+    /* Prediction Text */
+    .prediction-text {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+ <div class="login">
+    <h1>Fake Job Recruitment</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="title" placeholder="Title" required="required" />
+        <input type="text" name="location" placeholder="Location" required="required" />
+        <input type="text" name="company_profile" placeholder="Company Profile" required="required" />
+        <input type="text" name="requirements" placeholder="Requirements" required="required" />
+        <input type="text" name="employment_type" placeholder="Employment Type" required="required" />
+        <input type="text" name="required_experience" placeholder="Required Experience" required="required" />
+        <input type="text" name="required_education" placeholder="Required Education" required="required" />
+        <input type="text" name="industry" placeholder="Industry" required="required" />
+        <input type="text" name="function" placeholder="Function" required="required" />
+        <input type="text" name="StudentAbsenceDays" placeholder="Student Absence Days" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br><br>
+   <p class="prediction-text">{{ prediction_text }}</p>
+
+ </div>
+</body>
+</html>
